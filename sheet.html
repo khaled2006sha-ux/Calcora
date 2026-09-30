@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcora – جدول بيانات مجاني</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6f4;--ink:#16302b;--line:#c9d6d1;--head:#e2ebe7;--acc:#0f766e;--sel:#fff3c4;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#10201d;--ink:#e4f0ec;--line:#2e4741;--head:#1a322d;--acc:#5eead4;--sel:#4a4216;--card:#0c1917}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;padding:12px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+h1{margin:0;font-size:1.4rem;color:var(--acc)}
+button{font:inherit;background:var(--acc);color:var(--card);border:0;border-radius:6px;padding:6px 12px;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+#bar{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);padding:6px 8px;margin-bottom:8px;direction:ltr}
+#ref{font-weight:600;min-width:36px;color:var(--acc)}
+#fx{flex:1;font-family:monospace;min-height:1.4em;overflow:hidden;white-space:nowrap}
+.wrap{overflow:auto;max-height:calc(100vh - 170px);border:1px solid var(--line);background:var(--card);direction:ltr}
+table{border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:0;height:30px}
+th{background:var(--head);font-weight:600;font-size:.8rem;position:sticky;top:0;z-index:1}
+th.r{left:0;z-index:2;position:sticky;width:34px}
+td input{width:96px;height:100%;border:0;background:transparent;color:inherit;font:inherit;padding:0 6px;text-align:left}
+td input:focus{background:var(--sel)}
+p{font-size:.85rem;opacity:.8;line-height:1.7;margin:10px 0 0}
+</style>
+</head>
+<body>
+<header><h1>Calcora</h1><button id="clr">مسح الجدول</button></header>
+<div id="bar"><span id="ref">A1</span><span id="fx"></span></div>
+<div class="wrap"><table id="t"></table></div>
+<p>اكتب أرقاماً أو معادلات تبدأ بـ = مثل: <bdi dir="ltr">=A1+B1</bdi> أو <bdi dir="ltr">=SUM(A1:A5)</bdi>. الدوال: SUM, AVERAGE, MIN, MAX, COUNT. بياناتك تنحفظ في متصفحك.</p>
+<script>
+const COLS="ABCDEFGH".split(""),ROWS=20,KEY="calcora-data";
+let data={};
+try{data=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}};
+const nums=a=>a.filter(x=>typeof x==="number");
+const FN={
+  SUM:(...a)=>nums(a.flat()).reduce((s,x)=>s+x,0),
+  AVERAGE:(...a)=>{const n=nums(a.flat());return n.length?FN.SUM(n)/n.length:0},
+  MIN:(...a)=>Math.min(...nums(a.flat())),
+  MAX:(...a)=>Math.max(...nums(a.flat())),
+  COUNT:(...a)=>nums(a.flat()).length
+};
+function get(k,d){
+  if(d>30)throw 0;
+  const raw=data[k];
+  if(typeof raw==="string"&&raw[0]==="="){try{return run(raw.slice(1).toUpperCase(),d+1)}catch(e){return"#خطأ"}}
+  if(raw!==undefined&&raw!==""&&!isNaN(raw))return +raw;
+  return raw||"";
+}
+function run(ex,d){
+  const cell=k=>{const v=get(k,d);return typeof v==="number"?v:(parseFloat(v)||0)};
+  const rng=(a,b)=>{
+    const [c1,r1,c2,r2]=[a[0],+a.slice(1),b[0],+b.slice(1)],o=[];
+    for(let c=Math.min(COLS.indexOf(c1),COLS.indexOf(c2));c<=Math.max(COLS.indexOf(c1),COLS.indexOf(c2));c++)
+      for(let r=Math.min(r1,r2);r<=Math.max(r1,r2);r++){const v=get(COLS[c]+r,d);if(typeof v==="number")o.push(v)}
+    return o;
+  };
+  ex=ex.replace(/([A-H]\d+):([A-H]\d+)|([A-H]\d+)/g,(m,a,b,c)=>c?`cell("${c}")`:`rng("${a}","${b}")`);
+  if(!/^[\d\s+\-*/().,"A-Z]*$/.test(ex))throw 0;
+  const v=new Function("cell","rng",...Object.keys(FN),"return "+ex)(cell,rng,...Object.values(FN));
+  if(typeof v!=="number"||!isFinite(v))throw 0;
+  return Math.round(v*1e10)/1e10;
+}
+const t=document.getElementById("t"),ref=document.getElementById("ref"),fx=document.getElementById("fx");
+let h="<tr><th class='r'></th>"+COLS.map(c=>`<th>${c}</th>`).join("")+"</tr>";
+for(let r=1;r<=ROWS;r++){
+  h+=`<tr><th class="r">${r}</th>`+COLS.map(c=>`<td><input data-k="${c+r}" autocomplete="off" inputmode="text"></td>`).join("")+"</tr>";
+}
+t.innerHTML=h;
+const inputs=[...t.querySelectorAll("input")];
+const paint=()=>inputs.forEach(i=>{if(document.activeElement!==i)i.value=get(i.dataset.k,0)});
+inputs.forEach(i=>{
+  i.addEventListener("focus",()=>{const k=i.dataset.k;ref.textContent=k;i.value=data[k]||"";fx.textContent=data[k]||""});
+  i.addEventListener("input",()=>{fx.textContent=i.value});
+  i.addEventListener("blur",()=>{
+    const k=i.dataset.k,v=i.value.trim();
+    if(v)data[k]=v;else delete data[k];
+    save();paint();
+  });
+  i.addEventListener("keydown",e=>{
+    if(e.key==="Enter"){
+      const k=i.dataset.k,n=document.querySelector(`[data-k="${k[0]+(+k.slice(1)+1)}"]`);
+      i.blur();if(n)n.focus();
+    }
+  });
+});
+document.getElementById("clr").onclick=()=>{if(confirm("مسح كل البيانات؟")){data={};save();paint()}};
+paint();
+</script>
+</body>
+</html>
