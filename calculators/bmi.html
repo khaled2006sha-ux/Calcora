@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free BMI calculator. Calculate your body mass index and BMI category.">
+  <title>BMI Calculator – Calcora</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html">Calcora</a>
+
+    <nav class="main-nav">
+      <a href="../index.html">Calculators</a>
+      <a href="../index.html#favorites">Favorites</a>
+      <a href="../index.html#recent">Recent</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="hero-label">HEALTH CALCULATOR</span>
+
+    <h1>BMI Calculator</h1>
+
+    <p>
+      Calculate your Body Mass Index and see your BMI category.
+    </p>
+  </section>
+
+  <section class="calculator-section">
+
+    <div class="calculator-card">
+
+      <h2>Your Details</h2>
+
+      <label for="weight">Weight (kg)</label>
+      <input id="weight" type="number" placeholder="70" min="1" step="0.1">
+
+      <label for="height">Height (cm)</label>
+      <input id="height" type="number" placeholder="175" min="1" step="0.1">
+
+      <button
+        type="button"
+        class="calculator-link"
+        onclick="calculateBMI()"
+        style="border:0;background:none;cursor:pointer;padding:0;margin-top:20px;"
+      >
+        Calculate BMI →
+      </button>
+
+      <div id="result" style="margin-top:30px;"></div>
+
+    </div>
+
+  </section>
+
+  <section class="info-section">
+
+    <span class="section-label">BMI CATEGORIES</span>
+
+    <h2>Understanding BMI</h2>
+
+    <p>Underweight: BMI below 18.5</p>
+    <p>Healthy weight: BMI 18.5–24.9</p>
+    <p>Overweight: BMI 25–29.9</p>
+    <p>Obesity: BMI 30 or higher</p>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../index.html">Calculators</a>
+    <a href="../index.html#favorites">Favorites</a>
+    <a href="../blog.html">Blog</a>
+  </div>
+
+  <p>© 2026 Calcora. All rights reserved.</p>
+</footer>
+
+<script>
+
+function calculateBMI() {
+
+  const weight = Number(document.getElementById("weight").value);
+  const height = Number(document.getElementById("height").value);
+
+  if (!weight || !height || weight <= 0 || height <= 0) {
+    document.getElementById("result").innerHTML =
+      "<p>Please enter a valid weight and height.</p>";
+    return;
+  }
+
+  const heightMeters = height / 100;
+  const bmi = weight / (heightMeters * heightMeters);
+
+  let category;
+
+  if (bmi < 18.5) {
+    category = "Underweight";
+  } else if (bmi < 25) {
+    category = "Healthy weight";
+  } else if (bmi < 30) {
+    category = "Overweight";
+  } else {
+    category = "Obesity";
+  }
+
+  document.getElementById("result").innerHTML = `
+    <h2>Your Result</h2>
+
+    <p>
+      <strong>BMI:</strong>
+      ${bmi.toFixed(1)}
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      ${category}
+    </p>
+  `;
+}
+
+</script>
+
+</body>
+</html>
