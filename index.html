@@ -1,22 +1,634 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calcora – حاسبات مجانية</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Calcora provides free, fast and easy online calculators for finance, health, math, time and everyday life.">
+
+  <title>Calcora – Free Online Calculators</title>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<header><a class="logo" href="index.html">Calcora</a></header>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="logo" href="index.html">Calcora</a>
+
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">Calculators</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#recent">Recent</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-button" type="button">
+      Dark Mode
+    </button>
+
+  </div>
+</header>
+
+
 <main>
-<h1>حاسبات مجانية وسريعة</h1>
-<ul class="list">
-<li><a href="calculators/loan.html">حاسبة القرض<small>القسط الشهري وإجمالي الفوائد</small></a></li>
-<li><a href="calculators/bmi.html">مؤشر كتلة الجسم<small>اعرف تصنيف وزنك</small></a></li>
-<li><a href="calculators/age.html">حاسبة العمر<small>عمرك بالسنين والأشهر والأيام</small></a></li>
-<li><a href="sheet.html">جدول البيانات<small>معادلات ودوال مثل Excel</small></a></li>
-</ul>
+
+  <!-- Hero -->
+
+  <section class="hero">
+
+    <span class="hero-label">FREE ONLINE TOOLS</span>
+
+    <h1>Simple Calculators for Everyday Life</h1>
+
+    <p>
+      Fast, clear and easy-to-use calculators for finance,
+      health, mathematics, dates and everyday decisions.
+    </p>
+
+    <div class="search-box">
+      <input
+        id="calculatorSearch"
+        type="search"
+        placeholder="Search calculators..."
+        aria-label="Search calculators"
+      >
+    </div>
+
+  </section>
+
+
+  <!-- Favorites -->
+
+  <section id="favorites" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">YOUR TOOLS</span>
+        <h2>Favorites</h2>
+      </div>
+    </div>
+
+    <div id="favoritesList" class="calculator-grid">
+      <p class="empty-message">
+        Your favorite calculators will appear here.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- Recently Used -->
+
+  <section id="recent" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">HISTORY</span>
+        <h2>Recently Used</h2>
+      </div>
+    </div>
+
+    <div id="recentList" class="calculator-grid">
+      <p class="empty-message">
+        Calculators you use will appear here.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- Popular -->
+
+  <section class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">POPULAR</span>
+        <h2>Popular Calculators</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="loan calculator">
+
+        <button
+          class="favorite-button"
+          data-favorite="loan"
+          type="button"
+          aria-label="Add Loan Calculator to favorites"
+        >☆</button>
+
+        <div class="calculator-icon">💰</div>
+
+        <h3>Loan Calculator</h3>
+
+        <p>
+          Calculate monthly payments, total interest
+          and the total cost of a loan.
+        </p>
+
+        <a
+          href="calculators/loan.html"
+          class="calculator-link"
+          data-calculator="loan"
+        >
+          Open Calculator →
+        </a>
+
+      </article>
+
+
+      <article class="calculator-card" data-name="bmi calculator">
+
+        <button
+          class="favorite-button"
+          data-favorite="bmi"
+          type="button"
+          aria-label="Add BMI Calculator to favorites"
+        >☆</button>
+
+        <div class="calculator-icon">⚖️</div>
+
+        <h3>BMI Calculator</h3>
+
+        <p>
+          Calculate your body mass index and understand
+          your BMI category.
+        </p>
+
+        <a
+          href="calculators/bmi.html"
+          class="calculator-link"
+          data-calculator="bmi"
+        >
+          Open Calculator →
+        </a>
+
+      </article>
+
+
+      <article class="calculator-card" data-name="age calculator">
+
+        <button
+          class="favorite-button"
+          data-favorite="age"
+          type="button"
+          aria-label="Add Age Calculator to favorites"
+        >☆</button>
+
+        <div class="calculator-icon">📅</div>
+
+        <h3>Age Calculator</h3>
+
+        <p>
+          Calculate your exact age in years, months
+          and days.
+        </p>
+
+        <a
+          href="calculators/age.html"
+          class="calculator-link"
+          data-calculator="age"
+        >
+          Open Calculator →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- Categories -->
+
+  <section class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">EXPLORE</span>
+        <h2>Calculator Categories</h2>
+      </div>
+    </div>
+
+
+    <div class="category-grid">
+
+      <a href="#finance" class="category-card">
+        <span>💰</span>
+        <h3>Finance</h3>
+        <p>Loans, interest, percentages and money calculations.</p>
+      </a>
+
+
+      <a href="#math" class="category-card">
+        <span>🧮</span>
+        <h3>Math</h3>
+        <p>Useful mathematical calculations and formulas.</p>
+      </a>
+
+
+      <a href="#health" class="category-card">
+        <span>❤️</span>
+        <h3>Health & Fitness</h3>
+        <p>BMI, calories and useful health calculations.</p>
+      </a>
+
+
+      <a href="#date-time" class="category-card">
+        <span>📅</span>
+        <h3>Date & Time</h3>
+        <p>Age, dates, time differences and more.</p>
+      </a>
+
+
+      <a href="#everyday" class="category-card">
+        <span>🏠</span>
+        <h3>Everyday Life</h3>
+        <p>Practical calculators for everyday decisions.</p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Finance -->
+
+  <section id="finance" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">FINANCE</span>
+        <h2>Finance Calculators</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="loan calculator">
+
+        <button class="favorite-button" data-favorite="loan" type="button">☆</button>
+
+        <div class="calculator-icon">💰</div>
+
+        <h3>Loan Calculator</h3>
+
+        <p>Calculate payments, interest and total loan cost.</p>
+
+        <a href="calculators/loan.html" class="calculator-link" data-calculator="loan">
+          Open Calculator →
+        </a>
+
+      </article>
+
+
+      <article class="calculator-card" data-name="compound interest calculator">
+
+        <button class="favorite-button" data-favorite="compound-interest" type="button">☆</button>
+
+        <div class="calculator-icon">📈</div>
+
+        <h3>Compound Interest Calculator</h3>
+
+        <p>Calculate how money can grow through compound interest.</p>
+
+        <a href="calculators/compound-interest.html" class="calculator-link" data-calculator="compound-interest">
+          Open Calculator →
+        </a>
+
+      </article>
+
+
+      <article class="calculator-card" data-name="percentage calculator">
+
+        <button class="favorite-button" data-favorite="percentage" type="button">☆</button>
+
+        <div class="calculator-icon">％</div>
+
+        <h3>Percentage Calculator</h3>
+
+        <p>Calculate percentages, increases and decreases.</p>
+
+        <a href="calculators/percentage.html" class="calculator-link" data-calculator="percentage">
+          Open Calculator →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- Health -->
+
+  <section id="health" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">HEALTH</span>
+        <h2>Health & Fitness</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="bmi body mass index">
+
+        <button class="favorite-button" data-favorite="bmi" type="button">☆</button>
+
+        <div class="calculator-icon">⚖️</div>
+
+        <h3>BMI Calculator</h3>
+
+        <p>Calculate your body mass index.</p>
+
+        <a href="calculators/bmi.html" class="calculator-link" data-calculator="bmi">
+          Open Calculator →
+        </a>
+
+      </article>
+
+
+      <article class="calculator-card" data-name="calorie calculator">
+
+        <button class="favorite-button" data-favorite="calorie" type="button">☆</button>
+
+        <div class="calculator-icon">🔥</div>
+
+        <h3>Calorie Calculator</h3>
+
+        <p>Estimate daily calorie requirements.</p>
+
+        <a href="calculators/calorie.html" class="calculator-link" data-calculator="calorie">
+          Open Calculator →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- Date -->
+
+  <section id="date-time" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">DATE & TIME</span>
+        <h2>Date & Time Calculators</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="age calculator">
+
+        <button class="favorite-button" data-favorite="age" type="button">☆</button>
+
+        <div class="calculator-icon">📅</div>
+
+        <h3>Age Calculator</h3>
+
+        <p>Calculate your exact age from your date of birth.</p>
+
+        <a href="calculators/age.html" class="calculator-link" data-calculator="age">
+          Open Calculator →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- Everyday -->
+
+  <section id="everyday" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">EVERYDAY</span>
+        <h2>Everyday Calculators</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="spreadsheet">
+
+        <div class="calculator-icon">📊</div>
+
+        <h3>Spreadsheet</h3>
+
+        <p>Work with calculations, formulas and data in your browser.</p>
+
+        <a href="sheet.html" class="calculator-link">
+          Open Spreadsheet →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+
+  <section class="info-section">
+
+    <span class="section-label">ABOUT CALCORA</span>
+
+    <h2>Calculations Made Simple</h2>
+
+    <p>
+      Calcora is a collection of simple and practical online calculators
+      designed to help you solve everyday calculations quickly.
+    </p>
+
+  </section>
+
 </main>
+
+
+<footer class="site-footer">
+
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="blog.html">Blog</a>
+  </div>
+
+  <p>© 2026 Calcora. All rights reserved.</p>
+
+</footer>
+
+
+<script>
+
+const searchInput = document.getElementById("calculatorSearch");
+const cards = document.querySelectorAll(".calculator-card");
+
+searchInput.addEventListener("input", function () {
+
+  const query = this.value.toLowerCase().trim();
+
+  cards.forEach(card => {
+
+    const name = card.dataset.name || "";
+    const text = card.textContent.toLowerCase();
+
+    card.style.display =
+      !query || name.includes(query) || text.includes(query)
+      ? ""
+      : "none";
+
+  });
+
+});
+
+
+function getFavorites() {
+
+  try {
+    return JSON.parse(localStorage.getItem("calcoraFavorites")) || [];
+  } catch {
+    return [];
+  }
+
+}
+
+
+function saveFavorites(favorites) {
+
+  localStorage.setItem(
+    "calcoraFavorites",
+    JSON.stringify(favorites)
+  );
+
+}
+
+
+function updateFavoriteButtons() {
+
+  const favorites = getFavorites();
+
+  document.querySelectorAll(".favorite-button").forEach(button => {
+
+    const id = button.dataset.favorite;
+
+    if (favorites.includes(id)) {
+      button.textContent = "★";
+      button.setAttribute(
+        "aria-label",
+        "Remove from favorites"
+      );
+    } else {
+      button.textContent = "☆";
+      button.setAttribute(
+        "aria-label",
+        "Add to favorites"
+      );
+    }
+
+  });
+
+}
+
+
+document.querySelectorAll(".favorite-button").forEach(button => {
+
+  button.addEventListener("click", function () {
+
+    const id = this.dataset.favorite;
+    let favorites = getFavorites();
+
+    if (favorites.includes(id)) {
+      favorites = favorites.filter(item => item !== id);
+    } else {
+      favorites.push(id);
+    }
+
+    saveFavorites(favorites);
+    updateFavoriteButtons();
+
+  });
+
+});
+
+
+document.querySelectorAll("[data-calculator]").forEach(link => {
+
+  link.addEventListener("click", function () {
+
+    const id = this.dataset.calculator;
+
+    let recent = [];
+
+    try {
+      recent = JSON.parse(
+        localStorage.getItem("calcoraRecent")
+      ) || [];
+    } catch {}
+
+    recent = [
+      id,
+      ...recent.filter(item => item !== id)
+    ].slice(0, 6);
+
+    localStorage.setItem(
+      "calcoraRecent",
+      JSON.stringify(recent)
+    );
+
+  });
+
+});
+
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function () {
+
+  document.body.classList.toggle("dark-mode");
+
+  const dark =
+    document.body.classList.contains("dark-mode");
+
+  localStorage.setItem(
+    "calcoraDarkMode",
+    dark ? "true" : "false"
+  );
+
+  this.textContent =
+    dark ? "Light Mode" : "Dark Mode";
+
+});
+
+
+if (localStorage.getItem("calcoraDarkMode") === "true") {
+
+  document.body.classList.add("dark-mode");
+
+  themeToggle.textContent = "Light Mode";
+
+}
+
+
+updateFavoriteButtons();
+
+</script>
+
 </body>
 </html>
