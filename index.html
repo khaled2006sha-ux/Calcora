@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Calcora provides free, fast and easy online calculators for finance, health, math, time and everyday life.">
+  <meta name="description" content="Calcora provides free, fast and easy online calculators for finance, health, math, dates and everyday life.">
 
   <title>Calcora – Free Online Calculators</title>
 
@@ -32,10 +32,7 @@
   </div>
 </header>
 
-
 <main>
-
-  <!-- Hero -->
 
   <section class="hero">
 
@@ -60,7 +57,7 @@
   </section>
 
 
-  <!-- Favorites -->
+  <!-- FAVORITES -->
 
   <section id="favorites" class="calculator-section">
 
@@ -71,16 +68,12 @@
       </div>
     </div>
 
-    <div id="favoritesList" class="calculator-grid">
-      <p class="empty-message">
-        Your favorite calculators will appear here.
-      </p>
-    </div>
+    <div id="favoritesList" class="calculator-grid"></div>
 
   </section>
 
 
-  <!-- Recently Used -->
+  <!-- RECENT -->
 
   <section id="recent" class="calculator-section">
 
@@ -91,16 +84,12 @@
       </div>
     </div>
 
-    <div id="recentList" class="calculator-grid">
-      <p class="empty-message">
-        Calculators you use will appear here.
-      </p>
-    </div>
+    <div id="recentList" class="calculator-grid"></div>
 
   </section>
 
 
-  <!-- Popular -->
+  <!-- POPULAR -->
 
   <section class="calculator-section">
 
@@ -119,7 +108,6 @@
           class="favorite-button"
           data-favorite="loan"
           type="button"
-          aria-label="Add Loan Calculator to favorites"
         >☆</button>
 
         <div class="calculator-icon">💰</div>
@@ -128,7 +116,7 @@
 
         <p>
           Calculate monthly payments, total interest
-          and the total cost of a loan.
+          and total loan cost.
         </p>
 
         <a
@@ -148,7 +136,6 @@
           class="favorite-button"
           data-favorite="bmi"
           type="button"
-          aria-label="Add BMI Calculator to favorites"
         >☆</button>
 
         <div class="calculator-icon">⚖️</div>
@@ -156,8 +143,7 @@
         <h3>BMI Calculator</h3>
 
         <p>
-          Calculate your body mass index and understand
-          your BMI category.
+          Calculate your body mass index and BMI category.
         </p>
 
         <a
@@ -177,7 +163,6 @@
           class="favorite-button"
           data-favorite="age"
           type="button"
-          aria-label="Add Age Calculator to favorites"
         >☆</button>
 
         <div class="calculator-icon">📅</div>
@@ -185,8 +170,7 @@
         <h3>Age Calculator</h3>
 
         <p>
-          Calculate your exact age in years, months
-          and days.
+          Calculate your exact age in years, months and days.
         </p>
 
         <a
@@ -204,7 +188,7 @@
   </section>
 
 
-  <!-- Categories -->
+  <!-- CATEGORIES -->
 
   <section class="calculator-section">
 
@@ -215,41 +199,46 @@
       </div>
     </div>
 
-
     <div class="category-grid">
 
       <a href="#finance" class="category-card">
         <span>💰</span>
         <h3>Finance</h3>
-        <p>Loans, interest, percentages and money calculations.</p>
+        <p>
+          Loans, interest, percentages and money calculations.
+        </p>
       </a>
-
 
       <a href="#math" class="category-card">
         <span>🧮</span>
         <h3>Math</h3>
-        <p>Useful mathematical calculations and formulas.</p>
+        <p>
+          Useful mathematical calculations and formulas.
+        </p>
       </a>
-
 
       <a href="#health" class="category-card">
         <span>❤️</span>
         <h3>Health & Fitness</h3>
-        <p>BMI, calories and useful health calculations.</p>
+        <p>
+          BMI, calories and useful health calculations.
+        </p>
       </a>
-
 
       <a href="#date-time" class="category-card">
         <span>📅</span>
         <h3>Date & Time</h3>
-        <p>Age, dates, time differences and more.</p>
+        <p>
+          Age, dates, time differences and more.
+        </p>
       </a>
-
 
       <a href="#everyday" class="category-card">
         <span>🏠</span>
         <h3>Everyday Life</h3>
-        <p>Practical calculators for everyday decisions.</p>
+        <p>
+          Practical calculators for everyday decisions.
+        </p>
       </a>
 
     </div>
@@ -257,7 +246,7 @@
   </section>
 
 
-  <!-- Finance -->
+  <!-- FINANCE -->
 
   <section id="finance" class="calculator-section">
 
@@ -278,9 +267,15 @@
 
         <h3>Loan Calculator</h3>
 
-        <p>Calculate payments, interest and total loan cost.</p>
+        <p>
+          Calculate payments, interest and total loan cost.
+        </p>
 
-        <a href="calculators/loan.html" class="calculator-link" data-calculator="loan">
+        <a
+          href="calculators/loan.html"
+          class="calculator-link"
+          data-calculator="loan"
+        >
           Open Calculator →
         </a>
 
@@ -295,9 +290,15 @@
 
         <h3>Compound Interest Calculator</h3>
 
-        <p>Calculate how money can grow through compound interest.</p>
+        <p>
+          Calculate how money can grow through compound interest.
+        </p>
 
-        <a href="calculators/compound-interest.html" class="calculator-link" data-calculator="compound-interest">
+        <a
+          href="calculators/compound-interest.html"
+          class="calculator-link"
+          data-calculator="compound-interest"
+        >
           Open Calculator →
         </a>
 
@@ -312,9 +313,15 @@
 
         <h3>Percentage Calculator</h3>
 
-        <p>Calculate percentages, increases and decreases.</p>
+        <p>
+          Calculate percentages, increases and decreases.
+        </p>
 
-        <a href="calculators/percentage.html" class="calculator-link" data-calculator="percentage">
+        <a
+          href="calculators/percentage.html"
+          class="calculator-link"
+          data-calculator="percentage"
+        >
           Open Calculator →
         </a>
 
@@ -325,7 +332,47 @@
   </section>
 
 
-  <!-- Health -->
+  <!-- MATH -->
+
+  <section id="math" class="calculator-section">
+
+    <div class="section-heading">
+      <div>
+        <span class="section-label">MATH</span>
+        <h2>Math Calculators</h2>
+      </div>
+    </div>
+
+    <div class="calculator-grid">
+
+      <article class="calculator-card" data-name="percentage calculator">
+
+        <button class="favorite-button" data-favorite="percentage" type="button">☆</button>
+
+        <div class="calculator-icon">％</div>
+
+        <h3>Percentage Calculator</h3>
+
+        <p>
+          Quickly calculate percentages and percentage changes.
+        </p>
+
+        <a
+          href="calculators/percentage.html"
+          class="calculator-link"
+          data-calculator="percentage"
+        >
+          Open Calculator →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- HEALTH -->
 
   <section id="health" class="calculator-section">
 
@@ -346,9 +393,15 @@
 
         <h3>BMI Calculator</h3>
 
-        <p>Calculate your body mass index.</p>
+        <p>
+          Calculate your body mass index.
+        </p>
 
-        <a href="calculators/bmi.html" class="calculator-link" data-calculator="bmi">
+        <a
+          href="calculators/bmi.html"
+          class="calculator-link"
+          data-calculator="bmi"
+        >
           Open Calculator →
         </a>
 
@@ -363,9 +416,15 @@
 
         <h3>Calorie Calculator</h3>
 
-        <p>Estimate daily calorie requirements.</p>
+        <p>
+          Estimate daily calorie requirements.
+        </p>
 
-        <a href="calculators/calorie.html" class="calculator-link" data-calculator="calorie">
+        <a
+          href="calculators/calorie.html"
+          class="calculator-link"
+          data-calculator="calorie"
+        >
           Open Calculator →
         </a>
 
@@ -376,7 +435,7 @@
   </section>
 
 
-  <!-- Date -->
+  <!-- DATE & TIME -->
 
   <section id="date-time" class="calculator-section">
 
@@ -397,9 +456,15 @@
 
         <h3>Age Calculator</h3>
 
-        <p>Calculate your exact age from your date of birth.</p>
+        <p>
+          Calculate your exact age from your date of birth.
+        </p>
 
-        <a href="calculators/age.html" class="calculator-link" data-calculator="age">
+        <a
+          href="calculators/age.html"
+          class="calculator-link"
+          data-calculator="age"
+        >
           Open Calculator →
         </a>
 
@@ -410,7 +475,7 @@
   </section>
 
 
-  <!-- Everyday -->
+  <!-- EVERYDAY -->
 
   <section id="everyday" class="calculator-section">
 
@@ -429,9 +494,14 @@
 
         <h3>Spreadsheet</h3>
 
-        <p>Work with calculations, formulas and data in your browser.</p>
+        <p>
+          Work with calculations, formulas and data in your browser.
+        </p>
 
-        <a href="sheet.html" class="calculator-link">
+        <a
+          href="sheet.html"
+          class="calculator-link"
+        >
           Open Spreadsheet →
         </a>
 
@@ -442,7 +512,7 @@
   </section>
 
 
-  <!-- About -->
+  <!-- ABOUT -->
 
   <section class="info-section">
 
@@ -477,156 +547,390 @@
 
 <script>
 
-const searchInput = document.getElementById("calculatorSearch");
-const cards = document.querySelectorAll(".calculator-card");
+const calculatorData = {
 
-searchInput.addEventListener("input", function () {
+  "loan": {
+    name: "Loan Calculator",
+    description: "Calculate monthly payments, total interest and total loan cost.",
+    icon: "💰",
+    url: "calculators/loan.html"
+  },
 
-  const query = this.value.toLowerCase().trim();
+  "bmi": {
+    name: "BMI Calculator",
+    description: "Calculate your body mass index and BMI category.",
+    icon: "⚖️",
+    url: "calculators/bmi.html"
+  },
 
-  cards.forEach(card => {
+  "age": {
+    name: "Age Calculator",
+    description: "Calculate your exact age in years, months and days.",
+    icon: "📅",
+    url: "calculators/age.html"
+  },
 
-    const name = card.dataset.name || "";
-    const text = card.textContent.toLowerCase();
+  "compound-interest": {
+    name: "Compound Interest Calculator",
+    description: "Calculate how money can grow through compound interest.",
+    icon: "📈",
+    url: "calculators/compound-interest.html"
+  },
 
-    card.style.display =
-      !query || name.includes(query) || text.includes(query)
-      ? ""
-      : "none";
+  "percentage": {
+    name: "Percentage Calculator",
+    description: "Calculate percentages, increases and decreases.",
+    icon: "％",
+    url: "calculators/percentage.html"
+  },
 
-  });
+  "calorie": {
+    name: "Calorie Calculator",
+    description: "Estimate daily calorie requirements.",
+    icon: "🔥",
+    url: "calculators/calorie.html"
+  }
 
-});
+};
 
 
-function getFavorites() {
+function getStorage(key, fallback = []) {
 
   try {
-    return JSON.parse(localStorage.getItem("calcoraFavorites")) || [];
+
+    return JSON.parse(
+      localStorage.getItem(key)
+    ) || fallback;
+
   } catch {
-    return [];
+
+    return fallback;
+
   }
 
 }
 
 
-function saveFavorites(favorites) {
+function saveStorage(key, value) {
 
   localStorage.setItem(
-    "calcoraFavorites",
-    JSON.stringify(favorites)
+    key,
+    JSON.stringify(value)
   );
+
+}
+
+
+function createMiniCard(id) {
+
+  const calculator = calculatorData[id];
+
+  if (!calculator) {
+    return "";
+  }
+
+  const favorites = getStorage("calcoraFavorites");
+
+  const isFavorite =
+    favorites.includes(id);
+
+  return `
+
+    <article class="calculator-card">
+
+      <button
+        class="favorite-button"
+        data-favorite="${id}"
+        type="button"
+      >
+        ${isFavorite ? "★" : "☆"}
+      </button>
+
+      <div class="calculator-icon">
+        ${calculator.icon}
+      </div>
+
+      <h3>${calculator.name}</h3>
+
+      <p>
+        ${calculator.description}
+      </p>
+
+      <a
+        href="${calculator.url}"
+        class="calculator-link"
+        data-calculator="${id}"
+      >
+        Open Calculator →
+      </a>
+
+    </article>
+
+  `;
+
+}
+
+
+function renderFavorites() {
+
+  const container =
+    document.getElementById("favoritesList");
+
+  const favorites =
+    getStorage("calcoraFavorites");
+
+  if (!favorites.length) {
+
+    container.innerHTML = `
+      <p class="empty-message">
+        Your favorite calculators will appear here.
+      </p>
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML =
+    favorites
+      .map(id => createMiniCard(id))
+      .join("");
+
+  attachEvents();
+
+}
+
+
+function renderRecent() {
+
+  const container =
+    document.getElementById("recentList");
+
+  const recent =
+    getStorage("calcoraRecent");
+
+  if (!recent.length) {
+
+    container.innerHTML = `
+      <p class="empty-message">
+        Calculators you use will appear here.
+      </p>
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML =
+    recent
+      .map(id => createMiniCard(id))
+      .join("");
+
+  attachEvents();
 
 }
 
 
 function updateFavoriteButtons() {
 
-  const favorites = getFavorites();
+  const favorites =
+    getStorage("calcoraFavorites");
 
-  document.querySelectorAll(".favorite-button").forEach(button => {
+  document
+    .querySelectorAll(".favorite-button")
+    .forEach(button => {
 
-    const id = button.dataset.favorite;
+      const id =
+        button.dataset.favorite;
 
-    if (favorites.includes(id)) {
-      button.textContent = "★";
-      button.setAttribute(
-        "aria-label",
-        "Remove from favorites"
-      );
-    } else {
-      button.textContent = "☆";
-      button.setAttribute(
-        "aria-label",
-        "Add to favorites"
-      );
-    }
+      if (favorites.includes(id)) {
 
-  });
+        button.textContent = "★";
+
+      } else {
+
+        button.textContent = "☆";
+
+      }
+
+    });
 
 }
 
 
-document.querySelectorAll(".favorite-button").forEach(button => {
+function handleFavorite(button) {
 
-  button.addEventListener("click", function () {
+  const id =
+    button.dataset.favorite;
 
-    const id = this.dataset.favorite;
-    let favorites = getFavorites();
+  let favorites =
+    getStorage("calcoraFavorites");
 
-    if (favorites.includes(id)) {
-      favorites = favorites.filter(item => item !== id);
-    } else {
-      favorites.push(id);
-    }
+  if (favorites.includes(id)) {
 
-    saveFavorites(favorites);
-    updateFavoriteButtons();
+    favorites =
+      favorites.filter(
+        item => item !== id
+      );
 
-  });
+  } else {
 
-});
+    favorites.push(id);
 
+  }
 
-document.querySelectorAll("[data-calculator]").forEach(link => {
-
-  link.addEventListener("click", function () {
-
-    const id = this.dataset.calculator;
-
-    let recent = [];
-
-    try {
-      recent = JSON.parse(
-        localStorage.getItem("calcoraRecent")
-      ) || [];
-    } catch {}
-
-    recent = [
-      id,
-      ...recent.filter(item => item !== id)
-    ].slice(0, 6);
-
-    localStorage.setItem(
-      "calcoraRecent",
-      JSON.stringify(recent)
-    );
-
-  });
-
-});
-
-
-const themeToggle = document.getElementById("themeToggle");
-
-themeToggle.addEventListener("click", function () {
-
-  document.body.classList.toggle("dark-mode");
-
-  const dark =
-    document.body.classList.contains("dark-mode");
-
-  localStorage.setItem(
-    "calcoraDarkMode",
-    dark ? "true" : "false"
+  saveStorage(
+    "calcoraFavorites",
+    favorites
   );
 
-  this.textContent =
-    dark ? "Light Mode" : "Dark Mode";
+  updateFavoriteButtons();
 
-});
-
-
-if (localStorage.getItem("calcoraDarkMode") === "true") {
-
-  document.body.classList.add("dark-mode");
-
-  themeToggle.textContent = "Light Mode";
+  renderFavorites();
 
 }
 
 
+function handleRecent(link) {
+
+  const id =
+    link.dataset.calculator;
+
+  if (!id) {
+    return;
+  }
+
+  let recent =
+    getStorage("calcoraRecent");
+
+  recent = [
+    id,
+    ...recent.filter(
+      item => item !== id
+    )
+  ].slice(0, 6);
+
+  saveStorage(
+    "calcoraRecent",
+    recent
+  );
+
+}
+
+
+function attachEvents() {
+
+  document
+    .querySelectorAll(".favorite-button")
+    .forEach(button => {
+
+      button.onclick = function () {
+
+        handleFavorite(this);
+
+      };
+
+    });
+
+
+  document
+    .querySelectorAll("[data-calculator]")
+    .forEach(link => {
+
+      link.onclick = function () {
+
+        handleRecent(this);
+
+      };
+
+    });
+
+}
+
+
+const searchInput =
+  document.getElementById("calculatorSearch");
+
+
+searchInput.addEventListener(
+  "input",
+  function () {
+
+    const query =
+      this.value.toLowerCase().trim();
+
+    document
+      .querySelectorAll(
+        ".calculator-card"
+      )
+      .forEach(card => {
+
+        const text =
+          card.textContent
+            .toLowerCase();
+
+        card.style.display =
+          !query || text.includes(query)
+            ? ""
+            : "none";
+
+      });
+
+  }
+);
+
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+
+themeToggle.addEventListener(
+  "click",
+  function () {
+
+    document.body.classList.toggle(
+      "dark-mode"
+    );
+
+    const dark =
+      document.body.classList.contains(
+        "dark-mode"
+      );
+
+    localStorage.setItem(
+      "calcoraDarkMode",
+      dark ? "true" : "false"
+    );
+
+    this.textContent =
+      dark
+        ? "Light Mode"
+        : "Dark Mode";
+
+  }
+);
+
+
+if (
+  localStorage.getItem(
+    "calcoraDarkMode"
+  ) === "true"
+) {
+
+  document.body.classList.add(
+    "dark-mode"
+  );
+
+  themeToggle.textContent =
+    "Light Mode";
+
+}
+
+
+renderFavorites();
+renderRecent();
 updateFavoriteButtons();
+attachEvents();
 
 </script>
 
