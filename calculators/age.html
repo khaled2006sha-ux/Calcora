@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Free age calculator. Calculate your exact age in years, months and days.">
+
+  <title>Age Calculator – Calcora</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="logo" href="../index.html">Calcora</a>
+
+    <nav class="main-nav">
+      <a href="../index.html">Calculators</a>
+      <a href="../index.html#favorites">Favorites</a>
+      <a href="../index.html#recent">Recent</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+
+    <span class="hero-label">DATE & TIME CALCULATOR</span>
+
+    <h1>Age Calculator</h1>
+
+    <p>
+      Calculate your exact age in years, months and days.
+    </p>
+
+  </section>
+
+  <section class="calculator-section">
+
+    <div class="calculator-card">
+
+      <h2>Your Date of Birth</h2>
+
+      <label for="birthDate">Date of Birth</label>
+
+      <input
+        id="birthDate"
+        type="date"
+      >
+
+      <button
+        type="button"
+        class="calculator-link"
+        onclick="calculateAge()"
+        style="border:0;background:none;cursor:pointer;padding:0;margin-top:20px;"
+      >
+        Calculate Age →
+      </button>
+
+      <div id="result" style="margin-top:30px;"></div>
+
+    </div>
+
+  </section>
+
+  <section class="info-section">
+
+    <span class="section-label">ABOUT THIS CALCULATOR</span>
+
+    <h2>How It Works</h2>
+
+    <p>
+      Enter your date of birth and Calcora will calculate
+      your age based on today's date.
+    </p>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="footer-links">
+    <a href="../index.html">Calculators</a>
+    <a href="../index.html#favorites">Favorites</a>
+    <a href="../blog.html">Blog</a>
+  </div>
+
+  <p>© 2026 Calcora. All rights reserved.</p>
+
+</footer>
+
+<script>
+
+function calculateAge() {
+
+  const birthInput = document.getElementById("birthDate").value;
+  const result = document.getElementById("result");
+
+  if (!birthInput) {
+    result.innerHTML =
+      "<p>Please enter your date of birth.</p>";
+    return;
+  }
+
+  const birthDate = new Date(birthInput + "T00:00:00");
+  const today = new Date();
+
+  if (birthDate > today) {
+    result.innerHTML =
+      "<p>Date of birth cannot be in the future.</p>";
+    return;
+  }
+
+  let years = today.getFullYear() - birthDate.getFullYear();
+  let months = today.getMonth() - birthDate.getMonth();
+  let days = today.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+
+    months--;
+
+    const previousMonth = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      0
+    );
+
+    days += previousMonth.getDate();
+  }
+
+  if (months < 0) {
+
+    years--;
+    months += 12;
+
+  }
+
+  result.innerHTML = `
+    <h2>Your Age</h2>
+
+    <p>
+      <strong>${years}</strong> years,
+      <strong>${months}</strong> months and
+      <strong>${days}</strong> days
+    </p>
+  `;
+}
+
+</script>
+
+</body>
+</html>
